@@ -6,9 +6,9 @@ import random
 
 print("Question 10 Launch")
 
-LED_BLUE    = 22
-LED_RED     = 17
-LED_GREEN   = 27
+LED_BLUE = 22
+LED_RED = 17
+LED_GREEN = 27
 
 GPIO.setmode(GPIO.BCM)
 
@@ -16,44 +16,60 @@ GPIO.setup(LED_GREEN, GPIO.OUT)
 GPIO.setup(LED_BLUE, GPIO.OUT)
 GPIO.setup(LED_RED, GPIO.OUT)
 
+# Function to turn everything off
+
+
 def turn_off_all():
     GPIO.output(LED_GREEN, GPIO.LOW)
     GPIO.output(LED_BLUE, GPIO.LOW)
     GPIO.output(LED_RED, GPIO.LOW)
 
+
 turn_off_all()
+
+# Functions to control the RGB based on user input
+
 
 def input_one():
     GPIO.output(LED_RED, GPIO.HIGH)
 
+
 def input_two():
     GPIO.output(LED_RED, GPIO.LOW)
+
 
 def input_three():
     GPIO.output(LED_BLUE, GPIO.HIGH)
 
+
 def input_four():
     GPIO.output(LED_BLUE, GPIO.LOW)
+
 
 def input_five():
     GPIO.output(LED_GREEN, GPIO.HIGH)
 
+
 def input_six():
     GPIO.output(LED_GREEN, GPIO.LOW)
+
 
 def input_seven():
     GPIO.output(LED_GREEN, GPIO.HIGH)
     GPIO.output(LED_BLUE, GPIO.HIGH)
     GPIO.output(LED_RED, GPIO.HIGH)
 
+
 def input_eight():
     turn_off_all()
+
 
 def input_nine():
     turn_off_all()
     random_list = [LED_GREEN, LED_BLUE, LED_RED]
     choice = random.choice(random_list)
     GPIO.output(choice, GPIO.HIGH)
+
 
 def print_menu():
     print()
@@ -66,9 +82,11 @@ def print_menu():
 
 try:
     while True:
+        # Display the menu
         print_menu()
         user_choice = input("Make your choice: ")
 
+        # all the action correstponding to the user's input
         if user_choice == '1':
             input_one()
         elif user_choice == '2':
@@ -92,7 +110,7 @@ try:
             break
         else:
             print("Wrong input, try again")
-            
+
 except KeyboardInterrupt:
     GPIO.cleanup()
 

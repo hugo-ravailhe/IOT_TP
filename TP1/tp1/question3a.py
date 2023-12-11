@@ -21,9 +21,11 @@ try:
         print(button_state)
         if button_state == True:
             GPIO.output(LED, GPIO.LOW)
+            # set the LED off when button is not pressed
             print("Button not pressed")
         else:
             GPIO.output(LED, GPIO.HIGH)
+            # set the LED on when button is pressed
             print("Button pressed")
 
 except KeyboardInterrupt:

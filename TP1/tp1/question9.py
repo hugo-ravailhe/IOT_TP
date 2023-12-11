@@ -22,6 +22,7 @@ GPIO.output(BUZZER, GPIO.LOW)
 # We add this variable to know the previous state of the button
 previous_button_state = True
 
+# Function to measure the light intensity using the LDR
 def rc_time(pin_to_circuit):
     count = 0
   
@@ -42,6 +43,7 @@ def rc_time(pin_to_circuit):
 try:
     while True:
         value = rc_time(LDR)
+        # Check if the lights are on or off based on the light intensity
         if ( value <= 100000 ): 
             print("Lights are ON")
             GPIO.output(LED, GPIO.LOW)
@@ -49,6 +51,7 @@ try:
         else:
             print("Lights are OFF")
             if previous_button_state == True:
+                # Turn on the LED and sound the buzzer
                 GPIO.output(LED, GPIO.HIGH)
                 GPIO.output(BUZZER, GPIO.HIGH)
                 time.sleep(0.5)

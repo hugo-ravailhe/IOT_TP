@@ -35,16 +35,18 @@ GPIO.setup(BUTTON, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 try:
     while True:
-        
 
         button_state = GPIO.input(BUTTON)
+        # Check if the button is pressed
         if button_state == True:
             previous_button_state = button_state
             print("Button not pressed")
 
         else:
             print("Button press")
+            # Check the previous button state to avoid repeated actions
             if previous_button_state != button_state:
+                # Toggle the states of the LEDs
                 if green_state == GPIO.HIGH:
                     green_state = GPIO.LOW
                     yellow_state = GPIO.HIGH
@@ -56,8 +58,7 @@ try:
                 elif red_state == GPIO.HIGH:
                     green_state = GPIO.HIGH
                     red_state = GPIO.LOW
-                
-                
+
                 GPIO.output(LED_GREEN, green_state)
                 GPIO.output(LED_YELLOW, yellow_state)
                 GPIO.output(LED_RED, red_state)

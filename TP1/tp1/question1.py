@@ -6,17 +6,17 @@ import time
 print("Question 1 Launch")
 LED = 17
 FRESH = int(input("Enter a interval value:\n"))
+# Enter a interval value
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(LED, GPIO.OUT)
-GPIO.output(LED, GPIO.LOW)
+GPIO.output(LED, GPIO.LOW)  # set the LED off
 
 try:
     while True:
 
-        GPIO.output(LED, GPIO.HIGH)
+        GPIO.output(LED, GPIO.HIGH)  # set the LED on
         time.sleep(FRESH)
 
-        GPIO.output(LED, GPIO.LOW)
+        GPIO.output(LED, GPIO.LOW)  # set the LED off
         time.sleep(FRESH)
 
 except KeyboardInterrupt:

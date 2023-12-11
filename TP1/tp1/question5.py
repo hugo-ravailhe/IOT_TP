@@ -24,19 +24,23 @@ GPIO.output(LED_RED, GPIO.HIGH)
 
 try:
     while True:
-       
-       GPIO.output(LED_RED, GPIO.LOW)
-       GPIO.output(LED_GREEN, GPIO.HIGH)
-       print("Green")
-       time.sleep(5)
-       GPIO.output(LED_GREEN, GPIO.LOW)
-       GPIO.output(LED_YELLOW, GPIO.HIGH)
-       print("Yellow")
-       time.sleep(2)
-       GPIO.output(LED_YELLOW, GPIO.LOW)
-       GPIO.output(LED_RED, GPIO.HIGH)
-       print("Red")
-       time.sleep(5)
+
+        # Turn on the green LED, turn off the red LED
+        # no need to touch the state of the yellow LED because its off
+        GPIO.output(LED_RED, GPIO.LOW)
+        GPIO.output(LED_GREEN, GPIO.HIGH)
+        print("Green")
+        time.sleep(5)  # 5 seconds
+        # Turn off the green LED, turn on the yellow LED
+        GPIO.output(LED_GREEN, GPIO.LOW)
+        GPIO.output(LED_YELLOW, GPIO.HIGH)
+        print("Yellow")
+        time.sleep(2)  # 2 seconds
+        # Turn off the yellow LED, turn on the red LED
+        GPIO.output(LED_YELLOW, GPIO.LOW)
+        GPIO.output(LED_RED, GPIO.HIGH)
+        print("Red")
+        time.sleep(5)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
