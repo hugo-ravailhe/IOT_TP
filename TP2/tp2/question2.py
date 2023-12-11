@@ -16,11 +16,13 @@ GPIO.setup(PIR_MOTION, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(LED_RED, GPIO.OUT)
 GPIO.setup(LED_GREEN, GPIO.OUT)
 
+# Turn on the red LED and turn off the green LED initially
 GPIO.output(LED_RED, True)
 GPIO.output(LED_GREEN, False)
 
 try:
     while True:
+         # Check if motion is detected by the PIR sensor
         if GPIO.input(PIR_MOTION):
             print("Motion Detected")
             GPIO.output(LED_RED, False)

@@ -124,6 +124,7 @@ def alarm_system():
         time.sleep(0.2)
 
 try:
+    # Start temperature simulation and alarm system threads
     thread_temperature = threading.Thread(target=temperature_simulation)
     thread_temperature.start()
     thread_alarm = threading.Thread(target=alarm_system)

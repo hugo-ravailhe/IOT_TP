@@ -1,7 +1,8 @@
 ### Question 9 - Senhua Liu & Hugo Ravailhe ###
 #! /usr/bin/env python
 import RPi.GPIO as GPIO
-import time, sys
+import time
+import sys
 
 print("Question 9 Launch")
 
@@ -10,16 +11,16 @@ TRIG = 23
 ECHO = 24
 BUZZER = 12
 LED_GREEN = 6
-LED_RED  = 5
+LED_RED = 5
 
 # Buzzer
-GPIO.setup(BUZZER,GPIO.OUT)
+GPIO.setup(BUZZER, GPIO.OUT)
 # Led
-GPIO.setup(LED_GREEN,GPIO.OUT)
+GPIO.setup(LED_GREEN, GPIO.OUT)
 GPIO.setup(LED_RED, GPIO.OUT)
 # Sonar
-GPIO.setup(TRIG,GPIO.OUT)
-GPIO.setup(ECHO,GPIO.IN)
+GPIO.setup(TRIG, GPIO.OUT)
+GPIO.setup(ECHO, GPIO.IN)
 
 # Buzzer
 GPIO.output(BUZZER, GPIO.LOW)
@@ -31,22 +32,24 @@ GPIO.output(TRIG, False)
 
 time.sleep(1)
 
+
 def get_distance():
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
     pulse_start = 0
     pulse_end = 0
-    while GPIO.input(ECHO)==0:
+    while GPIO.input(ECHO) == 0:
         pulse_start = time.time()
-        
-    while GPIO.input(ECHO)==1:
+
+    while GPIO.input(ECHO) == 1:
         pulse_end = time.time()
 
     pulse_duration = pulse_end - pulse_start
     distance = pulse_duration * 17150
     distance = round(distance, 2)
     return distance
+
 
 def not_secure():
     print("Not secure")
@@ -56,11 +59,15 @@ def not_secure():
     time.sleep(5)
     GPIO.output(BUZZER, GPIO.LOW)
 
+
 def is_secure():
     print("Is secure")
     GPIO.output(LED_RED, GPIO.LOW)
     GPIO.output(BUZZER, GPIO.LOW)
     GPIO.output(LED_GREEN, GPIO.HIGH)
+
+# function to check if there is something close or not
+
 
 def check_security(distance, security_distance):
     if distance < security_distance:
@@ -68,7 +75,9 @@ def check_security(distance, security_distance):
     else:
         is_secure()
 
+
 try:
+    # get the user input for the choice of the distance
     choice = float(input("Choose a security distance in cm: ").lower())
     while True:
         distance = get_distance()
