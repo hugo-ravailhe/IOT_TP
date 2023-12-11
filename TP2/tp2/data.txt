@@ -1,0 +1,15 @@
+Current Time: 17:42:33 - Temp=24.0°  Humidity=49.9%
+Current Time: 17:42:39 - Temp=24.0°  Humidity=49.7%
+Current Time: 17:43:00 - Temp=23.9°  Humidity=49.6%
+Current Time: 17:43:04 - Temp=24.0°  Humidity=49.8%
+Current Time: 17:43:10 - Temp=24.0°  Humidity=49.9%
+Current Time: 17:43:13 - Temp=24.0°  Humidity=49.7%
+Current Time: 17:43:19 - Temp=24.0°  Humidity=49.6%
+Current Time: 17:43:25 - Temp=24.0°  Humidity=49.3%
+Current Time: 17:43:31 - Temp=24.0°  Humidity=49.3%
+Current Time: 17:43:35 - Temp=24.0°  Humidity=49.0%
+Current Time: 17:43:38 - Temp=23.9°  Humidity=48.8%
+Current Time: 17:44:02 - Temp=23.9°  Humidity=50.2%
+Current Time: 17:44:06 - Temp=23.9°  Humidity=50.4%
+Current Time: 17:44:14 - Temp=23.9°  Humidity=50.2%
+Current Time: 17:44:18 - Temp=23.9°  Humidity=50.0%
